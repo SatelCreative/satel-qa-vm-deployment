@@ -1,0 +1,25 @@
+name: Satel-webapp-QA-deployment
+description: Deploys webapp to QA VM/environment
+inputs:
+  app-name:
+    description: Name of the webapp
+    required: true
+  satel-docker-user:
+    description: Username for satel docker registry
+    required: true
+  satel-docker-pass:
+    description: Password for satel docker registry 
+    required: true  
+  satel-registry:
+    description: Satel registry address  
+    required: true  
+  clean-branch-name:  
+    description: Clean branch name
+    required: true  
+
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/DeployToQA.sh ${{ inputs.app-name }} ${{ inputs.satel-docker-user }}
+        ${{ inputs.satel-docker-pass }} ${{ inputs.satel-registry }} ${{ inputs.clean-branch-name }} 
+      shell: bash

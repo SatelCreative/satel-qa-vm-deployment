@@ -9,7 +9,7 @@ fi
 
 echo "Deploy to ${APP_NAME}-qa.satel.ca" 
 export DOCKER_TLS_VERIFY='1' 
-export DOCKER_HOST='tcp://34.234.172.171:2376'
+export DOCKER_HOST='tcp://35.170.70.47:2376'
 export DOCKER_CERT_PATH='/home/satel/.docker/machine/machines/satel-webapps-qa'
 
 if [[ ! $REGISTRY_TYPE ]]; then
